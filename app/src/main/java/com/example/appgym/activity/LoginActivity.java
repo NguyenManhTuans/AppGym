@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.appgym.ListviewtestActivity;
 import com.example.appgym.R;
 import com.example.appgym.database.database;
 import com.example.appgym.model.User;
@@ -60,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
                         if(name.equals(users.get(i).getName()) && pass.equals(users.get(i).getPassword())){
                             Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                             trangthai = true;
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, ListviewtestActivity.class);
                             startActivity(intent);
                             break;
                         }

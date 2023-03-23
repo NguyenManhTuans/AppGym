@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListdataActivity"
+    android:background="@color/gray">
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/baseline_arrow_back_24"
+        android:text="."
+        />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/two_legs_hips" />
+
+    <View
+        android:id="@+id/listdataView"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+    </View>
+
+    <TextView
+        android:id="@+id/listdata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/listdataView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="EXERCISE NAME"
+        android:textColor=" #5de8d5 "
+        android:textSize="35dp"
+        android:textStyle="bold"/>
+    
+    <TextView
+        android:id="@+id/text_view_countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/listdataView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:text="00:00"
+        android:textSize="60sp"
+        android:textColor="@android:color/black"/>
+
+    <Button
+        android:id="@+id/btn_start_countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_view_countdown"
+        android:layout_centerHorizontal="true"
+        android:text="Start"
+        android:textSize="25dp"
+        android:backgroundTint="#5de8d5"
+        android:textColor="@color/white"
+        />
+
+    <Button
+        android:id="@+id/btn_reset_countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_view_countdown"
+        android:layout_toEndOf="@id/btn_start_countdown"
+        android:layout_marginStart="11dp"
+        android:text="reset"
+        android:textSize="25dp"
+        android:backgroundTint="#5de8d5"
+        android:textColor="@color/white"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        />
+</RelativeLayout>
