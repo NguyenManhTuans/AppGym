@@ -7,7 +7,7 @@
     tools:context=".ListdataActivity"
     android:background="@color/gray">
 
-    <Button
+    <ImageView
         android:id="@+id/backButton"
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -43,7 +43,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:text="EXERCISE NAME"
-        android:textColor=" #5de8d5 "
+        android:textColor=" #48B6F1 "
         android:textSize="35dp"
         android:textStyle="bold"/>
     
@@ -65,8 +65,8 @@
         android:layout_below="@id/text_view_countdown"
         android:layout_centerHorizontal="true"
         android:text="Start"
-        android:textSize="25dp"
-        android:backgroundTint="#5de8d5"
+        android:textSize="35dp"
+        android:backgroundTint="#48B6F1"
         android:textColor="@color/white"
         />
 
@@ -74,14 +74,40 @@
         android:id="@+id/btn_reset_countdown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text_view_countdown"
-        android:layout_toEndOf="@id/btn_start_countdown"
+        android:layout_below="@id/btn_start_countdown"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="11dp"
         android:text="reset"
-        android:textSize="25dp"
-        android:backgroundTint="#5de8d5"
+        android:textSize="35dp"
+        android:backgroundTint="#48B6F1"
         android:textColor="@color/white"
         android:visibility="invisible"
         tools:visibility="visible"
         />
+
+    <Button
+        android:id="@+id/btnDone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="25dp"
+        android:text="done"
+        android:textSize="35dp"
+        android:backgroundTint="#48B6F1"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:id="@+id/btnPrevious"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="25dp"
+        android:layout_alignParentBottom="true"
+        android:text="previous"
+        android:textSize="35dp"
+        android:backgroundTint="#48B6F1"
+        android:textColor="@color/white"/>
 </RelativeLayout>

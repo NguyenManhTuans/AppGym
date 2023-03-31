@@ -18,6 +18,8 @@ import com.example.appgym.activity.MainActivity;
 public class ListviewtestActivity extends AppCompatActivity {
 
     ListView listView;
+
+    ImageView btnBack;
     String[] exerciseNames = {"Push Up", "Mountain Climber", "Two Leg Hips"};
     int[] exerciseImages = {R.drawable.pushup, R.drawable.mountain_climber,  R.drawable.two_legs_hips};
 
@@ -31,14 +33,30 @@ public class ListviewtestActivity extends AppCompatActivity {
         CustomAdapter customAdapter = new CustomAdapter();
         listView.setAdapter(customAdapter);
 
+        btnBack = findViewById(R.id.backButton);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Intent intent = new Intent(getApplicationContext(), ListdataActivity.class);
+//                intent.putExtra("name", exerciseNames[i]);
+//                intent.putExtra("image", exerciseImages[i]);
+//                startActivity(intent);
+//            }
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Intent intent = new Intent(getApplicationContext(), ListdataActivity.class);
-                intent.putExtra("name", exerciseNames[i]);
-                intent.putExtra("image", exerciseImages[i]);
+                intent.putExtra("name", exerciseNames[position]);
+                intent.putExtra("vitri",position);
+                intent.putExtra("image", exerciseImages[position]);
                 startActivity(intent);
             }
+
         });
     }
     private class CustomAdapter extends BaseAdapter {
@@ -62,8 +80,8 @@ public class ListviewtestActivity extends AppCompatActivity {
         public View getView(int i, View view, ViewGroup viewGroup) {
             View view1 = getLayoutInflater().inflate(R.layout.row_data,null);
 
-            TextView name = view1.findViewById(R.id.fruits);
-            ImageView image = view1.findViewById(R.id.images);
+            TextView name = view1.findViewById(R.id.txtExcercises);
+            ImageView image = view1.findViewById(R.id.imgExercises);
 
             name.setText(exerciseNames[i]);
             image.setImageResource(exerciseImages[i]);

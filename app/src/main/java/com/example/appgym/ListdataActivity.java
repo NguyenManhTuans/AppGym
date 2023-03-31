@@ -2,17 +2,21 @@ package com.example.appgym;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.appgym.activity.LoginActivity;
 import com.example.appgym.activity.MainActivity;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class ListdataActivity extends AppCompatActivity {
@@ -31,7 +35,12 @@ public class ListdataActivity extends AppCompatActivity {
 
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
-    private Button arrowBackButton;
+    private ImageView arrowBackButton;
+
+    String[] exerciseNames = {"Push Up", "Mountain Climber", "Two Leg Hips"};
+    int[] exerciseImages = {R.drawable.pushup, R.drawable.mountain_climber,  R.drawable.two_legs_hips};
+    private Button btnDone, btnPrevious;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,21 +50,52 @@ public class ListdataActivity extends AppCompatActivity {
         image = findViewById(R.id.imageView);
 
         Intent intent = getIntent();
-
+       // String username[]=intent.getStringExtra("name");
+        //int imagename=intent.getIntExtra("image",0);
+        final int[] po = {intent.getIntExtra("vitri", 0)};
         name.setText(intent.getStringExtra("name"));
         image.setImageResource(intent.getIntExtra("image", 0));
 
+        btnDone = findViewById(R.id.btnDone);
+        btnPrevious = findViewById(R.id.btnPrevious);
+
+        //Nut quay lai
         arrowBackButton = findViewById(R.id.backButton);
 
         arrowBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(ListdataActivity.this, ListviewtestActivity.class);
-                startActivity(i);
+                finish();
             }
         });
 
-        // Countdown Timer
+        btnDone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(po[0] < exerciseImages.length - 1){
+                    po[0] = po[0] + 1;
+                    name.setText(exerciseNames[po[0]]);
+                    image.setImageResource(exerciseImages[po[0]]);
+                }else {
+                    finish();
+                }
+            }
+        });
+
+        btnPrevious.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(po[0] > 0){
+                    po[0] = po[0] - 1;
+                    name.setText(exerciseNames[po[0]]);
+                    image.setImageResource(exerciseImages[po[0]]);
+                }else {
+                    finish();
+                }
+            }
+        });
+
+        // Dem nguoc thoi gian
         TextViewcountDown = findViewById(R.id.text_view_countdown);
         ButtonStartPause = findViewById(R.id.btn_start_countdown);
         ButtonReset = findViewById(R.id.btn_reset_countdown);

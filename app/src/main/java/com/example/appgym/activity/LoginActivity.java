@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         inputPasswordLogin = findViewById(R.id.txtPassword);
 
 
-        db.QueryData("CREATE TABLE IF NOT EXISTS users (username VARCHAR(40) PRIMARY KEY , email VARCHAR(40), password VARCHAR(40) )");
+        db.QueryData("CREATE TABLE IF NOT EXISTS users (username VARCHAR(40) PRIMARY KEY , email VARCHAR(40), password VARCHAR(40),height double, weight double )");
         String name,pass;
 
         name=getIntent().getStringExtra("username");
@@ -61,7 +61,8 @@ public class LoginActivity extends AppCompatActivity {
                         if(name.equals(users.get(i).getName()) && pass.equals(users.get(i).getPassword())){
                             Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                             trangthai = true;
-                            Intent intent = new Intent(LoginActivity.this, ListviewtestActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            intent.putExtra("username",name);
                             startActivity(intent);
                             break;
                         }
