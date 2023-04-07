@@ -1,34 +1,28 @@
-package com.example.appgym;
+package com.example.appgym.activity.workout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.appgym.activity.LoginActivity;
-import com.example.appgym.activity.MainActivity;
+import com.example.appgym.R;
 
-import java.util.ArrayList;
 import java.util.Locale;
 
-public class ListdataActivity extends AppCompatActivity {
+public class ArmActivity extends AppCompatActivity {
     TextView name;
     ImageView image;
 
     // Countdown Timer
-    private static final long START_TIME_IN_MILLIS = 20000;
+    private static final long START_TIME_IN_MILLIS = 30000;
 
-    private TextView TextViewcountDown;
-    private Button ButtonStartPause;
-    private Button ButtonReset;
+    private TextView TextViewcountDown ;
+    private Button ButtonStartPause, ButtonReset;
 
     private CountDownTimer CountDownTimer;
     private boolean TimerRunning;
@@ -37,8 +31,14 @@ public class ListdataActivity extends AppCompatActivity {
 
     private ImageView arrowBackButton;
 
-    String[] exerciseNames = {"Push Up", "Mountain Climber", "Two Leg Hips"};
-    int[] exerciseImages = {R.drawable.pushup, R.drawable.mountain_climber,  R.drawable.two_legs_hips};
+    String[] exerciseNames = {
+            "Push Up", "Mountain Climber", "Two Leg Hips", "Crunches Body", "Cobra Crunches"
+    };
+    int[] exerciseImages = {
+            R.drawable.pushup, R.drawable.mountain_climber,  R.drawable.two_legs_hips,
+            R.drawable.crunches_body,  R.drawable.cobra_crunches
+
+    };
     private Button btnDone, btnPrevious;
 
     @Override
@@ -50,7 +50,7 @@ public class ListdataActivity extends AppCompatActivity {
         image = findViewById(R.id.imageView);
 
         Intent intent = getIntent();
-       // String username[]=intent.getStringExtra("name");
+        // String username[]=intent.getStringExtra("name");
         //int imagename=intent.getIntExtra("image",0);
         final int[] po = {intent.getIntExtra("vitri", 0)};
         name.setText(intent.getStringExtra("name"));

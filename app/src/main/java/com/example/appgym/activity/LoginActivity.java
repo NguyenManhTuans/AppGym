@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.appgym.ListviewtestActivity;
 import com.example.appgym.R;
 import com.example.appgym.database.database;
 import com.example.appgym.model.User;

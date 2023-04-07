@@ -1,18 +1,20 @@
-package com.example.appgym;
+package com.example.appgym.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.appgym.activity.LoginActivity;
-import com.example.appgym.activity.SignUpActivity;
+import com.example.appgym.R;
 import com.example.appgym.database.database;
 import com.example.appgym.model.User;
 
@@ -21,7 +23,7 @@ import java.util.ArrayList;
 public class UserProfileActivity extends AppCompatActivity {
 
     ImageView btnBack;
-    TextView inputProfileName, inputHeight, inputWeight;
+    TextView inputProfileName, inputHeight, inputWeight, BmiValue, BmiStatus;
     Button btnSaveUser;
     database db;
     ArrayList<User> users;
@@ -37,8 +39,7 @@ public class UserProfileActivity extends AppCompatActivity {
         getData();
         String height=Double.toString (users.get(0).getHeight()) ;
         String weight=Double.toString (users.get(0).getWeight()) ;
-        inputHeight.setText(height+" cm");
-        inputWeight.setText(weight+" KG");
+        Update(height,weight);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +60,7 @@ public class UserProfileActivity extends AppCompatActivity {
                     user.put("weight",weight);
                     db.updateData("users",user,"username=?",new String[]{name1});
                     Toast.makeText(UserProfileActivity.this, "Thanh COng", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
             }
         });
@@ -80,6 +82,33 @@ public class UserProfileActivity extends AppCompatActivity {
         dataUser.close();
     }
 
+    public void Update(String height,String weight){
+        if(height.equals("0.0")||weight.equals("0.0")||height.equals("0")||weight.equals("0")){
+            inputHeight.setText("");
+            inputWeight.setText("");
+            BmiStatus.setText("");
+            BmiValue.setText("");
+        }
+        else{
+            inputHeight.setText(height);
+            inputWeight.setText(weight);
+            Double h =users.get(0).getHeight()/100;
+            Double w =users.get(0).getWeight();
+
+            Double BmiCALC = ((double)Math.round((w/(h*h))*1000.0) / 1000.0) ;
+
+            BmiValue.setText(BmiCALC.toString());
+            if(BmiCALC<18.5){
+                BmiStatus.setText("Gầy");
+            } else if(BmiCALC>=18.5 && BmiCALC<=24.9) {
+                BmiStatus.setText("Bình thường");
+            } else if (BmiCALC>=25.0 && BmiCALC<=29.9) {
+                BmiStatus.setText("Hơi béo");
+            } else {
+                BmiStatus.setText("Rất béo");
+            }
+        }
+    }
 
 
 
@@ -89,5 +118,7 @@ public class UserProfileActivity extends AppCompatActivity {
         inputHeight= findViewById(R.id.inputHeight);
         inputWeight = findViewById(R.id.inputWeight);
         btnSaveUser = findViewById(R.id.btnSaveUser);
+        BmiValue = findViewById(R.id.txtBmiValue);
+        BmiStatus=findViewById(R.id.txtBmiStatus);
     }
 }

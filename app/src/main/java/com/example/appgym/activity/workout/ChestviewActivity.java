@@ -1,4 +1,4 @@
-package com.example.appgym;
+package com.example.appgym.activity.workout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,16 +12,23 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.appgym.ListdataActivity;
-import com.example.appgym.activity.MainActivity;
+import com.example.appgym.R;
 
-public class ListviewtestActivity extends AppCompatActivity {
+public class ChestviewActivity extends AppCompatActivity {
 
     ListView listView;
-
+    TextView txtWorkName;
     ImageView btnBack;
-    String[] exerciseNames = {"Push Up", "Mountain Climber", "Two Leg Hips"};
-    int[] exerciseImages = {R.drawable.pushup, R.drawable.mountain_climber,  R.drawable.two_legs_hips};
+    String[] exerciseNames = {
+            "Push Up", "Mountain Climber", "Two Leg Hips", "Crunches Body", "Cobra Crunches",
+            "Push Up", "Mountain Climber", "Two Leg Hips"
+    };
+    int[] exerciseImages = {
+            R.drawable.pushup, R.drawable.mountain_climber,  R.drawable.two_legs_hips,
+            R.drawable.crunches_body,  R.drawable.cobra_crunches,
+            R.drawable.pushup, R.drawable.mountain_climber,  R.drawable.two_legs_hips,
+
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +41,8 @@ public class ListviewtestActivity extends AppCompatActivity {
         listView.setAdapter(customAdapter);
 
         btnBack = findViewById(R.id.backButton);
-
+        txtWorkName=findViewById(R.id.txtWorkoutName);
+        txtWorkName.setText("CHEST WORKOUT");
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +58,7 @@ public class ListviewtestActivity extends AppCompatActivity {
 //                startActivity(intent);
 //            }
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Intent intent = new Intent(getApplicationContext(), ListdataActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ChestActivity.class);
                 intent.putExtra("name", exerciseNames[position]);
                 intent.putExtra("vitri",position);
                 intent.putExtra("image", exerciseImages[position]);
