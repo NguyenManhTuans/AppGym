@@ -32,14 +32,15 @@ public class AbsActivity extends AppCompatActivity {
     private ImageView arrowBackButton;
 
     String[] exerciseNames = {
-            "Push Up", "Mountain Climber", "Two Leg Hips", "Crunches Body", "Cobra Crunches",
-            "Push Up", "Mountain Climber", "Two Leg Hips", "Crunches Body", "Cobra Crunches"
+            "Bicycles", "Cobra Crunches ", "Crunches Body",
+            "Crunches Reach", "Jumping Jack", "Lying Leg Raises",
+            "Touch Heel", "Mountain Climber"
     };
     int[] exerciseImages = {
-            R.drawable.pushup, R.drawable.mountain_climber,  R.drawable.two_legs_hips,
-            R.drawable.crunches_body,  R.drawable.cobra_crunches,
-            R.drawable.pushup, R.drawable.mountain_climber,  R.drawable.two_legs_hips,
-            R.drawable.crunches_body,  R.drawable.cobra_crunches};
+            R.drawable.bicycles, R.drawable.cobra_crunches,  R.drawable.crunches_body,
+            R.drawable.crunches_reach, R.drawable.jumping_jack, R.drawable.lying_leg_raises,
+            R.drawable.touch_heel,  R.drawable.mountain_climber
+    };
     private Button btnDone, btnPrevious;
 
     @Override
@@ -51,8 +52,6 @@ public class AbsActivity extends AppCompatActivity {
         image = findViewById(R.id.imageView);
 
         Intent intent = getIntent();
-       // String username[]=intent.getStringExtra("name");
-        //int imagename=intent.getIntExtra("image",0);
         final int[] po = {intent.getIntExtra("vitri", 0)};
         name.setText(intent.getStringExtra("name"));
         image.setImageResource(intent.getIntExtra("image", 0));

@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,11 +47,11 @@ public class SignUpActivity extends AppCompatActivity {
                 String name=inputUsername.getText().toString();
                 String pass2 = inputConfirmPassword.getText().toString();
                 if(email.equals("") || pass2.equals("") || name.equals("") || pass.equals("")){
-                    Toast.makeText(SignUpActivity.this, "Không hợp lệ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this, "Thông tin không được để trống", Toast.LENGTH_SHORT).show();
                 }else{
                     Cursor user = db.GetData_Condition("SELECT username FROM users WHERE username = ?", new String[]{ name });
                     if(user != null && user.moveToNext()){
-                        Toast.makeText(SignUpActivity.this, "Ten da ton tai", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignUpActivity.this, "Tên tài khoản đã tồn tại", Toast.LENGTH_SHORT).show();
                         user.close();
                     }else{
                         if(inputPassword.getText().toString().equals(inputConfirmPassword.getText().toString())){

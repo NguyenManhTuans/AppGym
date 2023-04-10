@@ -15,11 +15,15 @@ import com.example.appgym.R;
 import java.util.Locale;
 
 public class LegActivity extends AppCompatActivity {
+
+    private ImageView arrowBackButton;
     TextView name;
     ImageView image;
 
     // Countdown Timer
     private static final long START_TIME_IN_MILLIS = 30000;
+
+    private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
     private TextView TextViewcountDown ;
     private Button ButtonStartPause, ButtonReset;
@@ -27,15 +31,15 @@ public class LegActivity extends AppCompatActivity {
     private CountDownTimer CountDownTimer;
     private boolean TimerRunning;
 
-    private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
-
-    private ImageView arrowBackButton;
 
     String[] exerciseNames = {
-            "Push Up", "Mountain Climber"
+            "Chair Step", "Cross Touch Heel", "Crunches Reach", "Mountain Climber",
+            "Forwards Step", "Jumping Jack", "Two Legs Hips"
     };
     int[] exerciseImages = {
-            R.drawable.pushup, R.drawable.mountain_climber
+            R.drawable.chair_step, R.drawable.cross_touch_heel,  R.drawable.crunches_reach,
+            R.drawable.mountain_climber, R.drawable.forwards_step, R.drawable.jumping_jack,
+            R.drawable.two_legs_hips
     };
     private Button btnDone, btnPrevious;
 

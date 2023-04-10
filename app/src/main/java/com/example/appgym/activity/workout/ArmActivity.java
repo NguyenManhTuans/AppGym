@@ -32,11 +32,12 @@ public class ArmActivity extends AppCompatActivity {
     private ImageView arrowBackButton;
 
     String[] exerciseNames = {
-            "Push Up", "Mountain Climber", "Two Leg Hips", "Crunches Body", "Cobra Crunches"
+            "Back Incline Pushup", "Push Up ", "Jump Pushup",
+            "Mountain Climber", "Side Plank Pushup", "Touch Heel"
     };
     int[] exerciseImages = {
-            R.drawable.pushup, R.drawable.mountain_climber,  R.drawable.two_legs_hips,
-            R.drawable.crunches_body,  R.drawable.cobra_crunches
+            R.drawable.back_incline_pushup, R.drawable.pushup,  R.drawable.jump_pushup,
+            R.drawable.mountain_climber, R.drawable.side_plank_pushup, R.drawable.touch_heel
 
     };
     private Button btnDone, btnPrevious;

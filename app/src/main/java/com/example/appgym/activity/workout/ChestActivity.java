@@ -32,11 +32,14 @@ public class ChestActivity extends AppCompatActivity {
     private ImageView arrowBackButton;
 
     String[] exerciseNames = {
-            "Push Up", "Mountain Climber", "Two Leg Hips", "Crunches Body", "Forward Steps"
+            "Cobra Crunches", "Push Up", "Jumping Jacks",
+            "Crunches Stand","Jump Push Up", "Side Touch Heel",
+            "Side Plank Push Up", "Crunches Reach"
     };
     int[] exerciseImages = {
-            R.drawable.pushup, R.drawable.mountain_climber,  R.drawable.two_legs_hips,
-            R.drawable.crunches_body,  R.drawable.forwards_step,
+            R.drawable.cobra_crunches, R.drawable.pushup,  R.drawable.jumping_jack,
+            R.drawable.crunches_stand,  R.drawable.jump_pushup, R.drawable.side_touch_heel,
+            R.drawable.side_plank_pushup, R.drawable.crunches_reach
     };
     private Button btnDone, btnPrevious;
 

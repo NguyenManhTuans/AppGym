@@ -20,14 +20,14 @@ public class AbsviewActivity extends AppCompatActivity {
     TextView txtWorkName;
     ImageView btnBack;
     String[] exerciseNames = {
-            "Push Up", "Mountain Climber", "Two Leg Hips", "Crunches Body", "Cobra Crunches",
-            "Push Up", "Mountain Climber", "Two Leg Hips"
+            "Bicycles", "Cobra Crunches ", "Crunches Body",
+            "Crunches Reach", "Jumping Jack", "Lying Leg Raises",
+            "Touch Heel", "Mountain Climber"
     };
     int[] exerciseImages = {
-            R.drawable.pushup, R.drawable.mountain_climber,  R.drawable.two_legs_hips,
-            R.drawable.crunches_body,  R.drawable.cobra_crunches,
-            R.drawable.pushup, R.drawable.mountain_climber,  R.drawable.two_legs_hips,
-
+            R.drawable.bicycles, R.drawable.cobra_crunches,  R.drawable.crunches_body,
+            R.drawable.crunches_reach, R.drawable.jumping_jack, R.drawable.lying_leg_raises,
+            R.drawable.touch_heel,  R.drawable.mountain_climber
     };
 
     @Override
@@ -51,12 +51,6 @@ public class AbsviewActivity extends AppCompatActivity {
         });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Intent intent = new Intent(getApplicationContext(), ListdataActivity.class);
-//                intent.putExtra("name", exerciseNames[i]);
-//                intent.putExtra("image", exerciseImages[i]);
-//                startActivity(intent);
-//            }
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Intent intent = new Intent(getApplicationContext(), AbsActivity.class);
                 intent.putExtra("name", exerciseNames[position]);

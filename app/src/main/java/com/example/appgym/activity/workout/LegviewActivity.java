@@ -20,11 +20,13 @@ public class LegviewActivity extends AppCompatActivity {
     TextView txtWorkName;
     ImageView btnBack;
     String[] exerciseNames = {
-            "Push Up", "Mountain Climber"
+            "Chair Step", "Cross Touch Heel", "Crunches Reach", "Mountain Climber",
+            "Forwards Step", "Jumping Jack", "Two Legs Hips"
     };
     int[] exerciseImages = {
-            R.drawable.pushup, R.drawable.mountain_climber
-
+            R.drawable.chair_step, R.drawable.cross_touch_heel,  R.drawable.crunches_reach,
+            R.drawable.mountain_climber, R.drawable.forwards_step, R.drawable.jumping_jack,
+            R.drawable.two_legs_hips
     };
 
     @Override
@@ -49,12 +51,7 @@ public class LegviewActivity extends AppCompatActivity {
         });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Intent intent = new Intent(getApplicationContext(), ListdataActivity.class);
-//                intent.putExtra("name", exerciseNames[i]);
-//                intent.putExtra("image", exerciseImages[i]);
-//                startActivity(intent);
-//            }
+
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Intent intent = new Intent(getApplicationContext(), LegActivity.class);
                 intent.putExtra("name", exerciseNames[position]);
